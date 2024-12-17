@@ -14,7 +14,7 @@ export default {
         foreground: "var(--foreground)",
         // meus estilos
         text: "var(--text)",
-        back: "var(--background)",
+        backgroundMine: "var(--backgroundMine)",
         primary: "var(--primary)",
         secondary: "var(--secondary)",
         accent: "var(--accent)",
