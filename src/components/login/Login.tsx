@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/button";
+import { ButtonFactory } from "@/components/button";
 import { Input } from "@/components/input";
 import { AtSign, LockKeyhole, LockOpen } from "lucide-react";
 import Image from "next/image";
@@ -9,7 +9,10 @@ import { type FormEvent, useRef, useState } from "react";
 import GoogleImage from "/public/Google.svg";
 import LoginImage from "/public/GraphImage.png";
 
-export default function page() {
+export function LoginPage() {
+	const ButtonPrimary = ButtonFactory({ type: "Primary" });
+	const ButtonSecondary = ButtonFactory({ type: "Secondary" });
+
 	const [showPassword, setShowPassoword] = useState(false);
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -60,24 +63,21 @@ export default function page() {
 					</div>
 
 					<div className="flex flex-col items-center gap-6 mt-5">
-						<Button title="Entrar" />
+						<ButtonPrimary>Entrar</ButtonPrimary>
 
 						<div className="flex  items-center gap-4 pb-8 border-b">
 							<p>ou se preferir</p>
-							<Button
-								title="Entre com o google"
-								className="flex items-center gap-4 bg-text text-backgroundMine shadow shadow-black border border-black p-2 rounded-md hover:bg-primary hover:shadow-accent transition-all"
-								icon={() => (
-									<Image
-										src={GoogleImage}
-										alt="google image"
-										className="size-10"
-									/>
-								)}
-							/>
+							<ButtonSecondary>
+								Entre com o google
+								<Image
+									src={GoogleImage}
+									alt="google image"
+									className="size-10"
+								/>
+							</ButtonSecondary>
 						</div>
 						<Link
-							href="/pages/register"
+							href="/register"
 							className="hover:text-primary underline text-slate-200"
 						>
 							Não possui uma conta? faça o Cadastro

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/button";
+import { ButtonFactory } from "@/components/button";
 import { Input } from "@/components/input";
 import { AtSign, CircleUserRound, LockKeyhole, LockOpen } from "lucide-react";
 import Image from "next/image";
@@ -9,7 +9,9 @@ import { type FormEvent, useRef, useState } from "react";
 import GoogleImage from "/public/Google.svg";
 import RegisterImage from "/public/GraphImage.png";
 
-export default function page() {
+export function RegisterPage() {
+	const ButtonPrimary = ButtonFactory({ type: "Primary" });
+	const ButtonSecondary = ButtonFactory({ type: "Secondary" });
 	const [showPassword, setShowPassoword] = useState(false);
 	const [showPasswordConfirm, setShowPassowordConfirm] = useState(false);
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -29,7 +31,7 @@ export default function page() {
 
 	return (
 		<div className="flex min-h-screen bg-secondary">
-			<div className="bg-zinc-900 shadow-lg shadow-zinc-900 border-r border-black w-[730px] p-20">
+			<div className="bg-zinc-900 shadow-lg shadow-primary border-r border-primary w-[730px] p-20">
 				<h1 className="font-bold text-3xl mb-2">Cadastre-se gratuitamente</h1>
 				<form
 					onSubmit={(event) => handleRegisterSubmit(event)}
@@ -94,24 +96,21 @@ export default function page() {
 						/>
 					</div>
 					<div className="flex flex-col items-center gap-6 mt-5">
-						<Button title="Cadastrar" />
+						<ButtonPrimary>Cadastrar</ButtonPrimary>
 
 						<div className="flex items-center gap-4 pb-8 border-b">
-							<p>ou se preferir</p>
-							<Button
-								title="Entre com o google"
-								className="flex items-center gap-4 bg-text text-backgroundMine shadow shadow-black border border-black p-2 rounded-md hover:bg-primary hover:shadow-accent transition-all"
-								icon={() => (
-									<Image
-										src={GoogleImage}
-										alt="google image"
-										className="size-10"
-									/>
-								)}
-							/>
+							<p className="font-semibold">ou se preferir</p>
+							<ButtonSecondary>
+								Entre com o google
+								<Image
+									src={GoogleImage}
+									alt="google image"
+									className="size-10"
+								/>
+							</ButtonSecondary>
 						</div>
 						<Link
-							href="/pages/login"
+							href="login"
 							className="hover:text-primary underline text-slate-200"
 						>
 							Já possui conta? faça o login
