@@ -11,7 +11,7 @@ const Button = ({ children, type, className, ...rest }: ButtonProps) => {
 	return (
 		<button
 			className={clsx(
-				"flex text-center justify-center p-4 w-full rounded-md shadow shadow-black hover:bg-primary hover:shadow-accent transition-all",
+				"flex text-center justify-center p-4 rounded-md shadow shadow-black hover:bg-primaryMy hover:shadow-accentMy transition-all",
 				className,
 			)}
 			type={type}
@@ -26,7 +26,10 @@ const ButtonPrimary = ({ children, type, className, ...rest }: ButtonProps) => {
 	return (
 		<Button
 			type={type}
-			className={clsx("font-bold bg-accent border  border-black", className)}
+			className={clsx(
+				"font-bold bg-accentMy border border-primaryMy",
+				className,
+			)}
 			{...rest}
 		>
 			{children}
@@ -43,7 +46,7 @@ const ButtonSecondary = ({
 	return (
 		<Button
 			type={type}
-			className={clsx("items-center gap-4 border border-accent", className)}
+			className={clsx("items-center gap-4 border border-accentMy", className)}
 			{...rest}
 		>
 			{children}

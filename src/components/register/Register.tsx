@@ -30,8 +30,8 @@ export function RegisterPage() {
 	};
 
 	return (
-		<div className="flex min-h-screen bg-secondary">
-			<div className="bg-zinc-900 shadow-lg shadow-primary border-r border-primary w-[730px] p-20">
+		<div className="flex min-h-screen bg-secondaryMy">
+			<div className="bg-zinc-900 shadow-lg shadow-primaryMy border-r border-primaryMy w-[730px] p-20">
 				<h1 className="font-bold text-3xl mb-2">Cadastre-se gratuitamente</h1>
 				<form
 					onSubmit={(event) => handleRegisterSubmit(event)}
@@ -96,7 +96,7 @@ export function RegisterPage() {
 						/>
 					</div>
 					<div className="flex flex-col items-center gap-6 mt-5">
-						<ButtonPrimary>Cadastrar</ButtonPrimary>
+						<ButtonPrimary className="w-full">Cadastrar</ButtonPrimary>
 
 						<div className="flex items-center gap-4 pb-8 border-b">
 							<p className="font-semibold">ou se preferir</p>
@@ -111,7 +111,7 @@ export function RegisterPage() {
 						</div>
 						<Link
 							href="login"
-							className="hover:text-primary underline text-slate-200"
+							className="hover:text-primaryMy underline text-slate-200"
 						>
 							Já possui conta? faça o login
 						</Link>
